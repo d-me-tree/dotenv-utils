@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# USAGE:
+#   . envdown         To unload .env stored in DOTENV_PATH env var
+
+if [ -n "$DOTENV_PATH" ]; then
+  unset $(egrep -v '^#' $DOTENV_PATH | cut -d'=' -f1 | xargs)
+  unset DOTENV_PATH
+fi

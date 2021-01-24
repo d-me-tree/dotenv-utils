@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+
+# Inspired by https://gist.github.com/mihow/9c7f559807069a03e302605691f85572#gistcomment-3225272
+#
+# USAGE:
+#   . envup         To load .env file
+#   . envup custom  To load .env.custom
+
+envup() {
+  if [ -z "$1" ]; then
+    local file=".env"
+  else
+    local file=".env.$1"
+  fi
+
+  if [ -n "$DOTENV_PATH" ]; then
+    unset $(egrep -v '^#' $DOTENV_PATH | cut -d'=' -f1 | xargs)
+  fi
+
+  if [ -f $file ]; then
+    set -a
+    source $file
+    set +a
+  else
+    echo "No $file file found" 1>&2
+    return 1
+  fi
+
+  export DOTENV_PATH=$file
+}
+
+# Pass args to envup command
+envup "$@"
