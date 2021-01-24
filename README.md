@@ -1,6 +1,6 @@
 # dotenv-utils
 
-A couple of simple shell utility scripts for loading/unloading `.env` files.
+A couple of simple bash utility scripts for loading/unloading `.env` files.
 
 ## Installation
 
