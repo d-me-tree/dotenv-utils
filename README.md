@@ -7,9 +7,9 @@ A couple of simple shell utility scripts for loading/unloading `.env` files.
 1. Create `~/bin`
 2. Copy `envup` and `envdown` to `~/bin` directory you've created.
 3. Add `~/bin` to `PATH` (I have this in `~/.bash_profile`):  
-```shell
-export PATH=$PATH:$HOME/bin
-```
+    ```shell
+    export PATH=$PATH:$HOME/bin
+    ```
 
 
 ## Usage
